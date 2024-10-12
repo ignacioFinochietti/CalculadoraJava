@@ -1,0 +1,59 @@
+package java1.calculadora;
+import java.util.Scanner;
+
+public class Calculadora {
+
+    public static void main(String[] args) {
+        System.out.println("Calculadora");
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Ingresa un numero: ");
+        int numero1 = scanner.nextInt();
+        
+        System.out.println("Genial, ingresa otro numero: ");
+        int numero2= scanner.nextInt();
+        
+        System.out.println("Muy bien, operacion te gustaria realizar con estos numeros: +, -, /, * ");    
+        String operacion = scanner.next();
+    
+        double resultado = 0;
+        boolean operacionValida = true;
+        
+        switch (operacion){
+            case "+":
+                resultado = numero1 + numero2;
+                break;
+            
+            case "-":
+                resultado = numero1 - numero2;
+                break;
+            
+            case "*":
+                resultado = numero1 * numero2;
+                break;
+            
+            case "/":
+                if(numero2 != 0){
+                    resultado = numero1 / numero2;
+                    break;}
+                else{
+                    System.out.println("Error: division por 0.");
+                    operacionValida = false;
+                   
+                }
+                break;
+            
+            default:
+                System.out.println("Operacion no valida.");
+                operacionValida = false;
+                break;
+
+        }
+        
+        if (operacionValida){
+            System.out.println("Resultado: "+resultado);
+        }
+        
+        scanner.close();
+    }
+}
